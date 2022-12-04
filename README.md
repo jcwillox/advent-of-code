@@ -1,4 +1,4 @@
-# Advent of Code 🎄 [![cookiecutter](https://api.iconify.design/icomoon-free/pacman.svg?color=%23d4aa00&height=20)](https://github.com/cookiecutter/cookiecutter)
+# Advent of Code ![christmas-tree](https://api.iconify.design/twemoji/christmas-tree.svg?height=28) [![cookiecutter](https://api.iconify.design/icomoon-free/pacman.svg?color=%23d4aa00&height=26)](https://github.com/cookiecutter/cookiecutter)
 
 This repository is a cookiecutter template but it also contains my solutions which are not included when use this template. This is thanks to the way cookiecutter works, in which the top-level directory is not included in the template.
 
