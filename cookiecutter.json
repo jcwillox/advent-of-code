@@ -1,0 +1,5 @@
+{
+  "year": "{% now 'local', '%Y' %}",
+  "day": "{% now 'local', '%#d' %}",
+  "language": ["go", "python", "typescript"]
+}

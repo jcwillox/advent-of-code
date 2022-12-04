@@ -1,0 +1,19 @@
+{
+  "editor.formatOnSave": true,
+  "eslint.alwaysShowStatus": true,
+  "editor.renderWhitespace": "trailing",
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
+  "editor.linkedEditing": true,
+  "html.autoClosingTags": true,
+  "[javascript][javascriptreact][typescript][typescriptreact][json][jsonc][yaml][html][vue][markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.python"
+  },
+  "python.formatting.provider": "black",
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true
+}
