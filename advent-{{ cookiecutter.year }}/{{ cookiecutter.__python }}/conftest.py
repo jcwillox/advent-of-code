@@ -8,7 +8,7 @@ from pytest import Metafunc
 def load_cases(day: str, part: str):
     def load_file(path: str):
         with open(path) as file:
-            return file.read()
+            return file.read().strip()
 
     return list(
         zip(

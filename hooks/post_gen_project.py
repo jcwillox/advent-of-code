@@ -1,10 +1,9 @@
 #!/usr/bin/env python
 import shutil
+from glob import glob
 
 if __name__ == "__main__":
-    languages = ["go", "python", "typescript"]
-    selected_language = "{{ cookiecutter.language }}"
+    remove_suffix = "{{ cookiecutter.__remove_suffix }}"
 
-    for language in languages:
-        if language != selected_language:
-            shutil.rmtree(f"advent-{language}", ignore_errors=True)
+    for path in glob(f"*{remove_suffix}"):
+        shutil.rmtree(path)
