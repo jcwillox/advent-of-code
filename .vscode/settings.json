@@ -1,6 +1,5 @@
 {
   "editor.formatOnSave": true,
-  "eslint.alwaysShowStatus": true,
   "editor.renderWhitespace": "trailing",
   "editor.codeActionsOnSave": {
     "source.fixAll": true
@@ -11,9 +10,8 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[python]": {
-    "editor.defaultFormatter": "ms-python.python"
+    "editor.defaultFormatter": "ms-python.black-formatter"
   },
-  "python.formatting.provider": "black",
   "files.trimTrailingWhitespace": true,
   "files.insertFinalNewline": true
 }
