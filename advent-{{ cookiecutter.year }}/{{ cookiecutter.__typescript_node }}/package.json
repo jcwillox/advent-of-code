@@ -1,0 +1,14 @@
+{
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "node --experimental-strip-types --experimental-transform-types --test **/*.test.ts",
+    "test:watch": "node --experimental-strip-types --experimental-transform-types --test --watch  **/*.test.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.4"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

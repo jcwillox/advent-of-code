@@ -1,9 +1,11 @@
 {
   "year": "{% now 'local', '%Y' %}",
   "day": "{% now 'local', '%#d' %}",
-  "language": ["go", "python", "typescript"],
+  "language": ["go", "python", "typescript", "typescript-bun", "typescript-node"],
   "__remove_suffix": ".{{ random_ascii_string(12) }}.del",
   "__go": "advent-go{% if cookiecutter.language != 'go' %}{{ cookiecutter.__remove_suffix }}{% endif %}",
   "__python": "advent-python{% if cookiecutter.language != 'python' %}{{ cookiecutter.__remove_suffix }}{% endif %}",
-  "__typescript": "advent-typescript{% if cookiecutter.language != 'typescript' %}{{ cookiecutter.__remove_suffix }}{% endif %}"
+  "__typescript": "advent-typescript{% if cookiecutter.language != 'typescript' %}{{ cookiecutter.__remove_suffix }}{% endif %}",
+  "__typescript_bun": "advent-typescript-bun{% if cookiecutter.language != 'typescript-bun' %}{{ cookiecutter.__remove_suffix }}{% endif %}",
+  "__typescript_node": "advent-typescript-node{% if cookiecutter.language != 'typescript-node' %}{{ cookiecutter.__remove_suffix }}{% endif %}"
 }
