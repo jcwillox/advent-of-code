@@ -1,20 +1,19 @@
 {
   "compilerOptions": {
+    "lib": ["ESNext"],
     "target": "ESNext",
-    "useDefineForClassFields": true,
     "module": "ESNext",
-    "lib": ["ESNext", "DOM"],
-    "moduleResolution": "Node",
+    "moduleResolution": "Bundler",
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
     "strict": true,
+    "skipLibCheck": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,
-    "noEmit": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "skipLibCheck": true,
-    "types": ["vitest/globals"]
+    "noImplicitReturns": true
   },
   "include": ["**/*.ts", "**/*.d.ts"],
   "exclude": ["node_modules"]

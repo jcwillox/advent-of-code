@@ -1,5 +1,4 @@
 {
-  "name": "advent-ts",
   "type": "module",
   "private": true,
   "scripts": {
@@ -7,12 +6,7 @@
     "test:watch": "vitest"
   },
   "devDependencies": {
-    "@types/node": "^20.10.2",
-    "fast-glob": "^3.3.2",
-    "vite": "^5.0.4",
-    "vitest": "^0.34.6"
-  },
-  "engines": {
-    "node": ">=18"
+    "@types/node": "^20.16.9",
+    "vitest": "^2.1.1"
   }
 }
