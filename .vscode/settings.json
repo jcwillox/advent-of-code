@@ -7,7 +7,7 @@
   "editor.linkedEditing": true,
   "html.autoClosingTags": true,
   "[javascript][javascriptreact][typescript][typescriptreact][json][jsonc][yaml][html][vue][markdown]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "biomejs.biome"
   },
   "[python]": {
     "editor.defaultFormatter": "ms-python.black-formatter"
