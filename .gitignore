@@ -1,1 +1,3 @@
 .idea/
+advent-{{ cookiecutter.year }}/samples/*
+!advent-{{ cookiecutter.year }}/samples/day{{ cookiecutter.day }}
