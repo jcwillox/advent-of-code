@@ -11,33 +11,52 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func loadInputs(tb testing.TB) ([]string, []string) {
+func getDayPart(tb testing.TB) (string, string) {
 	name := strings.TrimPrefix(tb.Name(), "TestDay")
 	name = strings.TrimPrefix(name, "BenchmarkDay")
 	parts := strings.SplitN(name, "Part", 2)
 
-	loadFiles := func(path string) []string {
-		files, err := filepath.Glob(path)
-		if err != nil {
-			tb.Fatalf("failed to find samples: %v", err)
-		}
-		contents := make([]string, len(files))
-		for i, file := range files {
-			data, err := os.ReadFile(file)
-			if err != nil {
-				tb.Fatalf("failed to read samples: %v", err)
-			}
-			contents[i] = string(bytes.TrimSpace(bytes.ReplaceAll(data, []byte("\r\n"), []byte("\n"))))
-		}
-		return contents
+	day := parts[0]
+	part := parts[1]
+
+	return day, part
+}
+
+func loadSample(path string) string {
+	data, err := os.ReadFile(path)
+	if err != nil {
+		return ""
+	}
+	data = bytes.ReplaceAll(data, []byte("\r\n"), []byte("\n"))
+	data = bytes.TrimSpace(data)
+	return string(data)
+}
+
+func loadCases(tb testing.TB) ([]string, []string) {
+	day, part := getDayPart(tb)
+
+	outputs, err := filepath.Glob(fmt.Sprintf("../samples/day%s/p%s.*.output.txt", day, part))
+	if err != nil {
+		tb.Fatalf("failed to find samples: %v", err)
+	}
+	for i, output := range outputs {
+		outputs[i] = loadSample(output)
 	}
 
-	return loadFiles("../samples/day" + parts[0] + "/*.input.txt"),
-		loadFiles("../samples/day" + parts[0] + "/*." + parts[1] + ".output.txt")
+	inputs := make([]string, len(outputs))
+
+	for i := range outputs {
+		inputs[i] = loadSample(fmt.Sprintf("../samples/day%s/p%s.s%d.input.txt", day, part, i+1))
+		if inputs[i] == "" {
+			inputs[i] = loadSample(fmt.Sprintf("../samples/day%s/s%d.input.txt", day, i+1))
+		}
+	}
+
+	return inputs, outputs
 }
 
 func RunTests(t *testing.T, f func(string) (interface{}, error)) {
-	inputs, outputs := loadInputs(t)
+	inputs, outputs := loadCases(t)
 
 	for i, input := range inputs {
 		t.Run(fmt.Sprint("Sample", i+1), func(t *testing.T) {
@@ -51,7 +70,7 @@ func RunTests(t *testing.T, f func(string) (interface{}, error)) {
 }
 
 func RunBenchmarks(b *testing.B, f func(string) (interface{}, error)) {
-	inputs, _ := loadInputs(b)
+	inputs, _ := loadCases(b)
 
 	b.ResetTimer()
 

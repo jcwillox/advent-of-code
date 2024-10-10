@@ -1,21 +1,28 @@
 from glob import glob
 from types import ModuleType
 from typing import cast
-
 from pytest import Metafunc
+from os.path import exists
+
+
+def load_sample(path: str):
+    if exists(path):
+        with open(path) as file:
+            return file.read().strip()
+    return ""
 
 
 def load_cases(day: str, part: str):
-    def load_file(path: str):
-        with open(path) as file:
-            return file.read().strip()
+    cases: list[tuple[str, str]] = []
+    outputs = map(load_sample, glob(f"../samples/{day}/p{part}.*.output.txt"))
 
-    return list(
-        zip(
-            map(load_file, glob(f"../samples/{day}/*.{part}.input.txt")),
-            map(load_file, glob(f"../samples/{day}/*.{part}.output.txt")),
-        )
-    )
+    for idx, output in enumerate(outputs):
+        input_sample = load_sample(f"../samples/{day}/p{part}.s{idx+1}.input.txt")
+        if not input_sample:
+            input_sample = load_sample(f"../samples/{day}/s{idx +1}.input.txt")
+        cases.append((input_sample, output))
+
+    return cases
 
 
 def pytest_generate_tests(metafunc: Metafunc):
