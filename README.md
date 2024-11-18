@@ -7,6 +7,7 @@ This repository is a cookiecutter template but it also contains my solutions whi
 First you need to install cookiecutter, see the [installation](https://cookiecutter.readthedocs.io/en/latest/installation.html) docs for more info.
 
 The easiest way is usually `pip` or `pipx`:
+
 ```bash
 # using pip
 pip install cookiecutter
@@ -29,3 +30,35 @@ The command above only creates 1 year, 1 language, 1 day. Naturally you might wa
 ```bash
 cookiecutter gh:jcwillox/advent-of-code -f -s
 ```
+
+## Languages
+
+### Python
+
+The main python template uses pytest for testing which will need to be installed separately.
+
+Requires: Python, pytest
+
+### Typescript
+
+The main typescript template that should support any runtime, intended for use with node. It uses vitest (and vite) for testing.
+
+Recommends: Node 20+
+
+You may want to use the vitest vscode extension or the `@vitest/ui` package.
+
+### TypeScript Bun
+
+A variant of the typescript template that uses the bun runtime.
+
+Requires: Bun
+
+### Typescript Node
+
+An experimental variant of the typescript template that uses the built-in testing library added in node 22.
+
+Requires: Node 22+
+
+### Go
+
+Requires: Go
