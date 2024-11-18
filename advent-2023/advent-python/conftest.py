@@ -19,7 +19,7 @@ def load_cases(day: str, part: str):
     for idx, output in enumerate(outputs):
         input_sample = load_sample(f"../samples/{day}/p{part}.s{idx+1}.input.txt")
         if not input_sample:
-            input_sample = load_sample(f"../samples/{day}/s{idx +1}.input.txt")
+            input_sample = load_sample(f"../samples/{day}/s{idx+1}.input.txt")
         cases.append((input_sample, output))
 
     return cases

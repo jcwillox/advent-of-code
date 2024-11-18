@@ -6,7 +6,7 @@
     "test:watch": "node --experimental-strip-types --experimental-transform-types --test --watch  **/*.test.ts"
   },
   "devDependencies": {
-    "@types/node": "^22.7.4"
+    "@types/node": "^22.9.0"
   },
   "engines": {
     "node": ">=22"
